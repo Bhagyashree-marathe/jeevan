@@ -211,37 +211,65 @@ function ShareConsent({ onBack }: ShareConsentProps) {
 
           {/* ================= CONSENT STATUS ================= */}
 
-          <section className="mt-5 rounded-2xl bg-white p-5 shadow-sm border border-slate-100">
+<section className="mt-5 rounded-2xl bg-white p-5 shadow-sm border border-slate-100">
 
-            <div className="flex items-center justify-between">
+  <div className="flex items-center justify-between">
 
-              <div>
+    <div>
 
-                <h2 className="font-bold text-slate-900">
-                  Consent Status
-                </h2>
+      <h2 className="font-bold text-slate-900">
+        Consent Status
+      </h2>
 
-                <p className="mt-1 text-xs text-slate-500">
-                  You control access to your information
-                </p>
+      <p className="mt-1 text-xs text-slate-500">
+        You control access to your information
+      </p>
 
-              </div>
+    </div>
 
-              <span
-                className={`rounded-full px-3 py-1 text-xs font-semibold ${
-                  consentGiven
-                    ? "bg-green-100 text-green-700"
-                    : "bg-slate-100 text-slate-500"
-                }`}
-              >
-                {consentGiven
-                  ? "Granted"
-                  : "Not Granted"}
-              </span>
+    <span
+      className={`rounded-full px-3 py-1 text-xs font-semibold ${
+        consentGiven
+          ? "bg-green-100 text-green-700"
+          : "bg-slate-100 text-slate-500"
+      }`}
+    >
+      {consentGiven ? "Granted" : "Not Granted"}
+    </span>
 
-            </div>
+  </div>
 
-          </section>
+  {consentGiven && (
+    <div className="mt-4 rounded-xl bg-green-50 border border-green-100 p-4">
+
+      <p className="text-sm font-semibold text-green-800">
+        Information authorized for sharing:
+      </p>
+
+      <ul className="mt-2 space-y-1 text-sm text-green-700">
+
+        {healthSummary && (
+          <li>✓ Health Summary</li>
+        )}
+
+        {medicalHistory && (
+          <li>✓ Medical History</li>
+        )}
+
+        {medications && (
+          <li>✓ Medications</li>
+        )}
+
+        {emergencyInformation && (
+          <li>✓ Emergency Information</li>
+        )}
+
+      </ul>
+
+    </div>
+  )}
+
+</section>
 
 
           {/* ================= CONSENT BUTTON ================= */}
