@@ -19,15 +19,20 @@ function EmergencyAccess({ onBack }: EmergencyAccessProps) {
   }
 
   // ================= VERIFY HEALTH ID =================
-  const handleAccess = () => {
-    if (!healthId.trim()) {
-      alert("Please enter Health ID")
-      return
-    }
-
-    // Prototype verification
-    setShowPatientInfo(true)
+const handleAccess = () => {
+  if (!healthId.trim()) {
+    alert("Please enter Health ID")
+    return
   }
+
+  if (healthId.trim() !== patient.healthId) {
+    alert("Invalid Health ID")
+    return
+  }
+
+  // Prototype verification
+  setShowPatientInfo(true)
+}
 
   // ================= CRITICAL INFORMATION =================
   if (showPatientInfo) {
