@@ -11,10 +11,7 @@ function PatientQRCode({ onBack }: PatientQRCodeProps) {
     bloodGroup: "O+",
   }
 
-  const qrData = `Jeevan Health ID
-Health ID: ${patient.healthId}
-Name: ${patient.name}
-Blood Group: ${patient.bloodGroup}`
+  const qrData = patient.healthId
 
   // Download QR Code
   const downloadQRCode = () => {
